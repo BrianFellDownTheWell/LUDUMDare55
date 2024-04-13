@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private int speed;
     private Vector2 velocity;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     void Start()
     {
@@ -16,21 +16,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Player movement
         if (Input.GetKey(KeyCode.W))
         {
-            rb.MovePosition(rb.position + new Vector2(0.0f, 1.0f) * Time.fixedDeltaTime * speed);
+            velocity = new Vector2(0.0f, 1.0f) * Time.fixedDeltaTime * speed;
+            rb.MovePosition(rb.position + velocity);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rb.MovePosition(rb.position + new Vector2(0.0f, -1.0f) * Time.fixedDeltaTime * speed);
+            velocity = new Vector2(0.0f, -1.0f) * Time.fixedDeltaTime * speed;
+            rb.MovePosition(rb.position + velocity);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rb.MovePosition(rb.position + new Vector2(-1.0f, 0.0f) * Time.fixedDeltaTime * speed);
+            velocity = new Vector2(-1.0f, 0.0f) * Time.fixedDeltaTime * speed;
+            rb.MovePosition(rb.position + velocity);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.MovePosition(rb.position + new Vector2(1.0f, 0.0f) * Time.fixedDeltaTime * speed);
+            velocity = new Vector2(1.0f, 0.0f) * Time.fixedDeltaTime * speed;
+            rb.MovePosition(rb.position + velocity);
         }
     }
 }

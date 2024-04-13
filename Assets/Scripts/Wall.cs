@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+
+    private Rigidbody2D playerRB;
     private void OnCollisionEnter(Collision collision)
     {
         // Collision with player
         if (collision.gameObject.CompareTag("Player"))
         {
-            //Rigidbody2D playerRB = collision.gameObject.GetComponent<RigidBody2D>();
-            //if(playerRB != null) {
-                // Upon collision, set player's 
-                
-
-            //} 
+            Debug.Log("Collision");
+            playerRB = collision.gameObject.GetComponent<Rigidbody2D>();
+            if(playerRB != null) {
+                // Upon collision, set player's velocity to 0 
+                playerRB.velocity = Vector2.zero;
+            } 
         }
     }
 }
