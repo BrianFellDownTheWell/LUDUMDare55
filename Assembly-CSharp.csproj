@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Wall.cs" />
+    <Compile Include="Assets\Scripts\SoundTriggerHandler.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
