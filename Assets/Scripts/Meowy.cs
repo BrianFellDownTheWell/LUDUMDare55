@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Meowy : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Meowy : MonoBehaviour
 
     public AudioClip winClip;
     public AudioSource testAudio;
+    public string winScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class Meowy : MonoBehaviour
         {
             testAudio.PlayOneShot(winClip, 1);
             Debug.Log("You win (for real)!");
+            SceneManager.LoadScene(winScene);
         }
     }
 }
