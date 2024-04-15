@@ -4,8 +4,36 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    public void Open()
+    public AudioClip chestClip;
+    public AudioSource testAudio;
+
+    public Sprite openSprite;
+    public SpriteRenderer sRenderer;
+    private bool isOpen;
+
+    void start()
     {
+        testAudio = gameObject.GetComponent<AudioSource>();
+        sRenderer = GetComponent<SpriteRenderer>();
+        isOpen = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D c)
+    {
+        if (c.CompareTag("Player") && isOpen)
+        {
+            Debug.Log("You win!");
+        }
+    }
+
+        public void Open()
+    {
+        testAudio.PlayOneShot(chestClip, 1);
         Debug.Log("Opened chest");
+        isOpen = true;
+        if (openSprite != null && sRenderer != null)
+        {
+            sRenderer.sprite = openSprite;
+        }
     }
 }
